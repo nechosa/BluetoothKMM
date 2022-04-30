@@ -1,20 +1,26 @@
 package com.example.bluetoothkmm.android
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.bluetoothkmm.Greeting
-import android.widget.TextView
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.runtime.Composable
+import com.example.bluetoothkmm.android.ui.screens.NavGraphs
+import com.example.bluetoothkmm.android.ui.theme.SimpleNavComposeAppTheme
+import com.ramcosta.composedestinations.DestinationsNavHost
 
-fun greet(): String {
-    return Greeting().greeting()
-}
-
-class MainActivity : AppCompatActivity() {
+class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        val tv: TextView = findViewById(R.id.text_view)
-        tv.text = greet()
+        setContent {
+            MainScreen()
+        }
     }
 }
+
+@Composable
+private fun MainScreen() {
+    SimpleNavComposeAppTheme {
+        DestinationsNavHost(navGraph = NavGraphs.root)
+    }
+}
+
