@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.example.bluetoothkmm.android.ui.common.DefaultButton
+import com.example.bluetoothkmm.android.ui.screens.destinations.BluetoothMainScreenDestination
 import com.example.bluetoothkmm.android.ui.screens.destinations.HomeScreenDestination
 import com.example.bluetoothkmm.android.ui.theme.SimpleNavComposeAppTheme
 import com.ramcosta.composedestinations.annotation.Destination
@@ -37,6 +38,14 @@ fun LoginScreen(
                 navigator.navigate(HomeScreenDestination)
             },
         )
+
+        DefaultButton(
+            text = "BluetoothMainScreen",
+            onClick = {
+                navigator.navigate(BluetoothMainScreenDestination)
+            },
+        )
+        //BluetoothMainScreen
     }
 }
 
